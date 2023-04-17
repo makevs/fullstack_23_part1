@@ -21,15 +21,13 @@ const App = () => {
   ]
    
   const [selected, setSelected] = useState(0)
-  const points = {0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0}
-  const copy = {...points}
-  const upVote = () => copy[selected] += 1
+  const [points, setPoints] = useState([0, 0, 0, 0, 0, 0, 0, 0])
 
   return (
     <div>
       {anecdotes[selected]}<br></br>
-      <p>has {copy[selected]} votes</p>
-      <Button handleClick={() => upVote()} text="vote" />
+      <p>has {points[selected]} votes</p>
+      <Button handleClick={() => setPoints(points[selected] + 1)} text="vote" />
       <Button handleClick={() => setSelected(Random)} text="next anecdote" />
     </div>
   )
