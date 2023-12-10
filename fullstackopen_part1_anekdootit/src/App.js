@@ -5,7 +5,6 @@ const Button = (props) => (
     {props.text}
   </button>
 )
-
 const Random = () => Math.floor(Math.random() * 8)
 
 const App = () => {
@@ -18,19 +17,24 @@ const App = () => {
     'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.',
     'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when dianosing patients.',
     'The only way to go fast, is to go well.'
-  ]
+  ];
    
-  const [selected, setSelected] = useState(0)
-  const [points, setPoints] = useState([0, 0, 0, 0, 0, 0, 0, 0])
+  const [selected, setSelected] = useState(0);
+  //const points = new Array(8).fill(0);
+  const [points, setPoints] = useState(new Array(8).fill(0));
+
+  const [copy, setCopy] = useState(points);
 
   return (
     <div>
-      {anecdotes[selected]}<br></br>
-      <p>has {points[selected]} votes</p>
-      <Button handleClick={() => setPoints(points[selected] + 1)} text="vote" />
+      <p>{anecdotes[selected]}</p>
+      <p>has {copy[selected]} votes</p>
+      <Button handleClick={() => setPoints(copy[selected] += 1)} text="vote" />
       <Button handleClick={() => setSelected(Random)} text="next anecdote" />
     </div>
   )
 }
 
 export default App
+
+// <Button handleClick={() => copy[selected]++} text="vote" />
