@@ -25,11 +25,17 @@ const App = () => {
   const [copy, setCopy] = useState(points);
 
   return (
+
     <div>
+      <h1>Anecdote of the day</h1>
       <p>{anecdotes[selected]}</p>
       <p>has {copy[selected]} votes</p>
       <Button handleClick={() => setPoints(copy[selected] += 1)} text="vote" />
       <Button handleClick={() => setSelected(Random)} text="next anecdote" />
+
+      <h1>Anecdote with most votes</h1>
+      <p>{anecdotes[copy.indexOf(Math.max(...copy))]}</p>
+      <p>has {Math.max(...copy)} votes</p>
     </div>
   )
 }
