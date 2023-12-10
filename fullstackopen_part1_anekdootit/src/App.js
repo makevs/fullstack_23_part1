@@ -20,7 +20,6 @@ const App = () => {
   ];
    
   const [selected, setSelected] = useState(0);
-  //const points = new Array(8).fill(0);
   const [points, setPoints] = useState(new Array(8).fill(0));
 
   const [copy, setCopy] = useState(points);
@@ -36,5 +35,3 @@ const App = () => {
 }
 
 export default App
-
-// <Button handleClick={() => copy[selected]++} text="vote" />
